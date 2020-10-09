@@ -30,6 +30,11 @@
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="panel-heading">
+                            <div class="busca mb-4">
+                                <input type="text" name="busqueda" id="busqueda" placeholder=" Realizar una búsqueda" title="Buscar" autocomplete="off">
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover table-striped text-center">
                                 <thead>
@@ -40,7 +45,7 @@
                                         <th col="2">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="registros">
                                     <tr>
                                         <td>1</td>
                                         <td>Categoria 1</td>

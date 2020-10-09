@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Lista de usuarios</title>
+    <title>Lista de talleres</title>
 </head>
 
 <body>
@@ -20,13 +20,13 @@
                     <div class="card-header bg-dark text-white">
                         <div class="row px-4">
                             <div class="mr-auto">
-                                <h4>Usuarios</h4>
+                                <h4>Talleres</h4>
                             </div>
-                            <!-- <div class="text-right">
-                                <a href="crear-usuario.php" class="btn btn-success">                                    
-                                    ✚ Crear usuario 
+                            <div class="text-right">
+                                <a href="crear-taller.php" class="btn btn-success">
+                                    ✚ Crear taller
                                 </a>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -41,6 +41,8 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>No. documento</th>
+                                        <th>Dirección</th>
+                                        <th>Telefono</th>
                                         <th>Email</th>
                                         <th col="2">Acciones</th>
                                     </tr>
@@ -49,6 +51,8 @@
                                     <tr>
                                         <td>Pepito Perez</td>
                                         <td>1003264894</td>
+                                        <td>Carrera 32 # 19 A-50</td>
+                                        <td>304369742</td>
                                         <td>pepe@email.com</td>
                                         <td>
                                             <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
@@ -65,13 +69,13 @@
     </div>
 
 
-    <!-- Actualizar usuario (Ventana modal) -->
+    <!-- Actualizar taller (Ventana modal) -->
 
     <div class="modal" tabindex="-1" id="actualizar">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Actualizar usuario</h5>
+                    <h5 class="modal-title">Actualizar taller</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -79,22 +83,28 @@
                 <form action="" method="POST">
                     <div class="modal-body">
                         <div class="form-group form-inline">
-                            <label>Nombre del usuario</label>
-                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
+                            <label>Nombre del proveedor</label>
+                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Tipo de documento</label>
-                            <select class="form-control p2 mx-sm-3" value="" required>
-                                <option selected disabled value=""> </option>
-                                <option>Cédula de ciudadania</option>
-                                <option>Trajeta de identidad</option>
-                            </select>
+                            <input type="text" value="?" class="form-control p2 mx-sm-3" readonly>
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Número de documento</label>
-                            <input type="number" name="numero" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
+                            <input type="number" name="numero" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label>Dirección</label>
+                            <input type="text" name="direccion" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label>Telefono</label>
+                            <input type="number" name="telefono" class="form-control p2 mx-sm-3" required="" autocomplete="off">
                         </div>
 
                         <div class="form-group form-inline">

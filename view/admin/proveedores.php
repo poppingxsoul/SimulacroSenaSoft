@@ -23,17 +23,22 @@
                                 <h4>Proveedores</h4>
                             </div>
                             <div class="text-right">
-                                <a href="crear-proveedor.php" class="btn btn-success">                                    
-                                    ✚ Crear proveedor 
+                                <a href="crear-proveedor.php" class="btn btn-success">
+                                    ✚ Crear proveedor
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="panel-heading">
+                            <div class="busca mb-4">
+                                <input type="text" name="busqueda" id="busqueda" placeholder=" Realizar una búsqueda" title="Buscar" autocomplete="off">
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover table-striped text-center">
                                 <thead>
-                                    <tr>                                       
+                                    <tr>
                                         <th>Nombre</th>
                                         <th>No. documento</th>
                                         <th>Dirección</th>
@@ -42,7 +47,7 @@
                                         <th col="2">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="registros">
                                     <tr>
                                         <td>Pepito Perez</td>
                                         <td>1003264894</td>
@@ -77,39 +82,35 @@
                 </div>
                 <form action="" method="POST">
                     <div class="modal-body">
-                    <div class="form-group form-inline">
-                        <label>Nombre del proveedor</label>
-                        <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
-                    </div>
+                        <div class="form-group form-inline">
+                            <label>Nombre del proveedor</label>
+                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                        </div>
 
-                    <div class="form-group form-inline">
-                        <label>Tipo de documento</label>
-                        <select class="form-control p2 mx-sm-3" value="" required>
-                            <option selected disabled value=""> </option>
-                            <option>Cédula de ciudadania</option>
-                            <option>NIT</option>                          
-                        </select>
-                    </div>  
+                        <div class="form-group form-inline">
+                            <label>Tipo de documento</label>                            
+                            <input type="text" value="?" class="form-control p2 mx-sm-3" readonly>
+                        </div>
 
-                    <div class="form-group form-inline">
-                        <label>Número de documento</label>
-                        <input type="number" name="numero" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
-                    </div>
-                    
-                    <div class="form-group form-inline">
-                        <label>Dirección</label>
-                        <input type="text" name="direccion" class="form-control p2 mx-sm-3" required="" autocomplete="off">
-                    </div>
+                        <div class="form-group form-inline">
+                            <label>Número de documento</label>
+                            <input type="number" name="numero" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                        </div>
 
-                    <div class="form-group form-inline">
-                        <label>Telefono</label>
-                        <input type="number" name="telefono" class="form-control p2 mx-sm-3" required="" autocomplete="off">
-                    </div>
+                        <div class="form-group form-inline">
+                            <label>Dirección</label>
+                            <input type="text" name="direccion" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                        </div>
 
-                    <div class="form-group form-inline">
-                        <label>Email</label>
-                        <input type="email" name="email" class="form-control p2 mx-sm-3" required="" autocomplete="off">
-                    </div>
+                        <div class="form-group form-inline">
+                            <label>Telefono</label>
+                            <input type="number" name="telefono" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                        </div>
 
                         <hr class="pt-4 mt-5">
                         <div class="form-row mt-4">
