@@ -1,6 +1,6 @@
-<?php require_once'model/conexion.php'; 
+<?php require_once'modelo/conexion.php'; 
 
-$controller='Registro';
+$controller='Usuarios';
 if(!isset($_REQUEST['c']))
 {
     require_once "controller/$controller.Controller.php";
