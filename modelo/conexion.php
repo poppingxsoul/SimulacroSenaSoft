@@ -1,5 +1,6 @@
 <?php
-class conexion{
+class conexion
+{
     private $server;
     private $user;
     private $pass;
@@ -7,14 +8,14 @@ class conexion{
 
     public function __construct()
     {
-        $this->server='localhost';
-        $this->user='root';
-        $this->pass='';
-        $this->bd='';
+        $this->server = 'localhost';
+        $this->user = 'root';
+        $this->pass = '';
+        $this->bd = '';
     }
-    public function conectar(){
-    $link = new PDO("mysql:host=$this->server;dbname=$this->bd", $this->user,$this->pass);
-    return $link;
+    public function conectar()
+    {
+        $link = new PDO("mysql:host=$this->server;dbname=$this->bd", $this->user, $this->pass);
+        return $link;
     }
 }
-?>
