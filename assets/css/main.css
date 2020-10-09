@@ -26,14 +26,31 @@
     transition: all .5s ease;
 }
 
+.form-control.p2{
+    border: 0px solid transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    outline: none !important;
+}
+
 .form-control.p:focus{
     box-shadow: 0px 0px 0px transparent !important; 
     border-color: #000 !important;   
 }
 
+.form-control.p2:focus{
+    box-shadow: 0px 0px 0px transparent !important; 
+    border-color: #000 !important;   
+}
 
 @media(max-width: 575px){
     .centrar{
         display: none;
+    }
+}
+
+@media(min-width: 576px){
+    .form-control.p2{
+        width: 75% !important;
     }
 }
