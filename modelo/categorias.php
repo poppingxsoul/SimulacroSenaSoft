@@ -22,10 +22,10 @@ class categorias
         $stmt->closeCursor();
     }
 
-    public function eliminar($id)
+    public function eliminar($datos)
     {
         $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where idcategoria=:idcategoria ");
-        $stmt->bindParam(':idcategoria', $id, PDO::PARAM_STR);
+        $stmt->bindParam(':idcategoria', $datos['id'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
