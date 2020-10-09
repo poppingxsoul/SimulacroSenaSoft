@@ -1,4 +1,4 @@
-<?php require_once'modelo/conexion.php'; 
+<?php require_once'model/conexion.php'; 
 
 $controller='Usuarios';
 if(!isset($_REQUEST['c']))
