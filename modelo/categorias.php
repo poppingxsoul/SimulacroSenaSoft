@@ -12,6 +12,12 @@ class categorias
     {
         $stmt = $this->conexion->conectar()->prepare
         
+        ("INSERT INTO categorias (nombre, descripcion, condicion)
+        values(:nombre,:descripcion,:condicion) ");
+
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
+        $stmt->bindParam(':condicion', 1 , PDO::PARAM_INT);
         ("INSERT INTO categorias 
         (idcategoria,nombre,descripcion,condicion)
         values(:idcategoria,:nombre,:descripcion,:condicion) ");
@@ -26,7 +32,7 @@ class categorias
 
     public function eliminar($id)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM tabla where id=:id ");
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where id=:id ");
         $stmt->bindParam(':dato', $id, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
