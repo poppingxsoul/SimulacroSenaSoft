@@ -1,6 +1,6 @@
 <?php
 require_once 'conexion.php';
-class usuarios
+class usuario
 {
     public $conexion;
 
@@ -50,7 +50,6 @@ class usuarios
         $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios");
         $stmt->execute();
         return $stmt->fetchAll();
-
         $stmt->closeCursor();
     }
 }
