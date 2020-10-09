@@ -31,7 +31,7 @@ class persona
     {
         $stmt = $this->conexion->conectar()->prepare
         ("DELETE FROM persona where idpersona=:idpersona");
-        $stmt->bindParam(':idpersona', $idpersona, PDO::PARAM_STR);
+        $stmt->bindParam(':idpersona', $id, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }

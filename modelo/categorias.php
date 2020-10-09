@@ -18,14 +18,6 @@ class categorias
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
         $stmt->bindParam(':condicion', 1 , PDO::PARAM_INT);
-        ("INSERT INTO categorias 
-        (idcategoria,nombre,descripcion,condicion)
-        values(:idcategoria,:nombre,:descripcion,:condicion) ");
-
-        $stmt->bindParam(':idcategoria', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
-        $stmt->bindParam(':descripcion', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':condicion', $datos, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }

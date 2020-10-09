@@ -35,7 +35,14 @@
                                 <input type="text" name="busqueda" id="busqueda" placeholder=" Realizar una búsqueda" title="Buscar" autocomplete="off">
                             </div>
                         </div>
-                        <div class="table-responsive">
+
+                        <div class="container" id="alerta-no-results" style="display: none;max-width: 600px;">
+                            <div class="alert alert-danger" role="alert">
+                                No hay resultados para mostrar                               
+                            </div>
+                        </div>
+
+                        <div class="table-responsive" id="tabla">
                             <table class="table table-hover table-striped text-center">
                                 <thead>
                                     <tr>

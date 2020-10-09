@@ -53,7 +53,7 @@
                             <a href="solicitudes.php" class="btn btn-danger form-control">Cancelar</a>
                         </div>
                         <div class="col-md-6 mb-3  pr-4">
-                            <input class="btn btn-info form-control" value="Crear solicitud" type="submit">
+                            <input class="btn btn-info form-control" value="Guardar" type="submit">
                         </div>
                     </div>
                 </form>
