@@ -21,7 +21,7 @@ class UsuariosController
     {
         require_once 'view/register.php';
     }
-    /*public function routes()
+    public function routes()
     {
         if (isset($_GET['ruta'])) {
             $this->route = $_GET['ruta'];
@@ -38,6 +38,6 @@ class UsuariosController
                     break;
             }
         }
-    }*/
+    }
     
 }
