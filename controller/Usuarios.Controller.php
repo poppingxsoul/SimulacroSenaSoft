@@ -53,7 +53,7 @@ class UsuariosController
     }
     public function validar()
     {
-        /*$no_documento = $_POST['no_documento'];
+        $no_documento = $_POST['no_documento'];
         $clave = $_POST['clave'];
 
         $resultado = $this->model->validacion($no_documento);
@@ -71,7 +71,7 @@ class UsuariosController
         } else {
             echo '<script>alert("Usuario no existe")</script>';
             require_once 'view/index.php';
-        }*/
+        }
         header("location:?c=Admin&a=index");
     }
 
