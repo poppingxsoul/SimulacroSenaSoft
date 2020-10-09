@@ -24,12 +24,12 @@ class usuario
 
     public function eliminar($id_usuario)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where id_usuario=:id ");
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where idusuario=:id ");
         $stmt->bindParam(':id', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
-    public function actualizar($id_usuario, $datos)
+    public function actualizar($idusuario, $datos)
     {
         $stmt = $this->conexion->conectar()->prepare("UPDATE usuarios SET 
         tipo_documento=:tipo_documento,no_documento=:no_documento,
@@ -40,13 +40,13 @@ class usuario
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
         $stmt->bindParam(':clave', $datos['clave'], PDO::PARAM_STR);
-        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':idusuario', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
     public function validacion($identificacion)
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,id_ciudadano,nombre FROM ciudadano 
+        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,idusuario,nombre FROM ciudadano 
         WHERE  numero_identificacion=:identificacion ");
         $stmt->bindParam(':identificacion', $identificacion, PDO::PARAM_STR);
         $stmt->execute();

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Registrarse</title>
 </head>
@@ -14,7 +14,7 @@
     <header class="container-fluid mb-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
             <a class="navbar-brand" href="index.php">
-                <img src="../assets/img/logosoft.png" class="p-2" alt="SenaSoft 2020" width="100px">
+                <img src="assets/img/logosoft.png" class="p-2" alt="SenaSoft 2020" width="100px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,23 +39,23 @@
                 <hr>
                 <form action="?c=Usuarios&a=registrar" method="POST">
                     <div class="form-group pt-1">
-                        <input type="text" class="form-control p pb-4" name="nombres" placeholder="Nombres completos" required="" autofocus autocomplete="off">
+                        <input type="text" class="form-control p pb-4" name="nombre" placeholder="Nombres completos" required="" autofocus autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
                         <input type="email" class="form-control p pb-4" name="email" placeholder="Email" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
-                        <select class="form-control p pb-4" required>
+                        <select class="form-control p pb-4" name="tipo_documento" required>
                             <option>Tipo de documento de identidad</option>
                             <option>Cédula de ciudadano</option>
                             <option>Tarjeta de identidad</option>
                         </select>
                     </div>
                     <div class="form-group pt-2">
-                        <input type="number" class="form-control p pb-4" name="identificacion" placeholder="Numero de identificación" required="" autocomplete="off">
+                        <input type="number" class="form-control p pb-4" name="no_documento" placeholder="Numero de identificación" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
-                        <input type="password" class="form-control p pb-4" name="pass" placeholder="Contraseña" required="" autocomplete="off">
+                        <input type="password" class="form-control p pb-4" name="clave" placeholder="Contraseña" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-3">
                         <input type="submit" class="form-control btn btn-info" value="Registrarse">
