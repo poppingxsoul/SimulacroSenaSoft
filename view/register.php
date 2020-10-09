@@ -45,10 +45,10 @@
                         <input type="email" class="form-control p pb-4" name="email" placeholder="Email" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
-                        <select name="" class="form-control p pb-4">
-                            <option value="">Tipo de documento de identidad</option>
-                            <option value="">Cédula de ciudadano</option>
-                            <option value="">Tarjeta de identidad</option>
+                        <select class="form-control p pb-4" required>
+                            <option>Tipo de documento de identidad</option>
+                            <option>Cédula de ciudadano</option>
+                            <option>Tarjeta de identidad</option>
                         </select>
                     </div>
                     <div class="form-group pt-2">
