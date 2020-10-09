@@ -23,7 +23,7 @@ class usuario
     public function eliminar($id)
     {
         $stmt = $this->conexion->conectar()->prepare("DELETE FROM tabla where id=:id ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt->bindParam(':dato', $id, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
