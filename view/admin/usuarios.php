@@ -54,10 +54,12 @@
                                 </thead>
                                 <tbody id="registros">
                                     <tr>
-                                        <td>Pepito Perez</td>
-                                        <td>1003264894</td>
-                                        <td>pepe@email.com</td>
+                                    <?php foreach($this->model->listar_usuarios() as $lista):?>
+                                        <td><?php echo $lista['nombre']?></td>
+                                        <td><?php echo $lista['no_documento']?></td>
+                                        <td><?php echo $lista['email']?></td>
                                         <td>
+                                    <?php endforeach;?>
                                             <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
                                             <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
                                         </td>

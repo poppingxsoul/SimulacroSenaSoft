@@ -23,7 +23,7 @@
                                 <h4>Proveedores</h4>
                             </div>
                             <div class="text-right">
-                                <a href="crear-proveedor.php" class="btn btn-success">
+                                <a href="?c=Admin&a=crear_proveedor_vista" class="btn btn-success">
                                     ✚ Crear proveedor
                                 </a>
                             </div>
@@ -35,10 +35,10 @@
                                 <input type="text" name="busqueda" id="busqueda" placeholder=" Realizar una búsqueda" title="Buscar" autocomplete="off">
                             </div>
                         </div>
-                        
+
                         <div class="container" id="alerta-no-results" style="display: none;max-width: 600px;">
                             <div class="alert alert-danger" role="alert">
-                                No hay resultados para mostrar                               
+                                No hay resultados para mostrar
                             </div>
                         </div>
 
@@ -56,15 +56,21 @@
                                 </thead>
                                 <tbody id="registros">
                                     <tr>
-                                        <td>Pepito Perez</td>
-                                        <td>1003264894</td>
-                                        <td>Carrera 32 # 19 A-50</td>
-                                        <td>304369742</td>
-                                        <td>pepe@email.com</td>
-                                        <td>
-                                            <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
-                                            <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
-                                        </td>
+                                        <?php foreach ($this->model->listar_personas("proveedor") as $lista) : ?>
+
+                                            <td><?= $lista['nombre']; ?></td>
+                                            <td><?= $lista['no_documento']; ?></td>
+                                            <td><?= $lista['direccion']; ?></td>
+                                            <td><?= $lista['telefono']; ?></td>
+                                            <td><?= $lista['email']; ?></td>
+                                            <td>
+                                                <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                                <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
+                                            </td>
+                                    <tr>
+                                    <?php endforeach; ?>
+
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -95,7 +101,7 @@
                         </div>
 
                         <div class="form-group form-inline">
-                            <label>Tipo de documento</label>                            
+                            <label>Tipo de documento</label>
                             <input type="text" value="?" class="form-control p2 mx-sm-3" readonly>
                         </div>
 

@@ -17,6 +17,15 @@ class AdminController
     {
         require_once 'view/admin/usuarios.php';
     }
+    public function talleres(){
+        require_once'view/admin/talleres.php';
+    }
+    public function crear_proveedor_vista(){
+        require_once'view/admin/crear-proveedor.php';
+    }
+    public function proveedores(){
+        require_once'view/admin/proveedores.php';
+    }
     public function guardar()
     {
         if (isset($_POST) & !empty($_POST)) {
@@ -27,6 +36,9 @@ class AdminController
             $this->datos['telefono'] = $_POST['telefono'];
             $this->datos['email'] = $_POST['email'];
             $this->datos['tipo'] = $_POST['tipo'];
+            
+            $this->model->insertar($this->datos);
+            
             if ($this->tipo = 'proveedores') {
                 require_once 'view/admin/proveedores.php';
             } elseif ($this->tipo = 'talleres') {

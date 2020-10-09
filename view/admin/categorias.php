@@ -23,7 +23,7 @@
                                 <h4>Categorias</h4>
                             </div>
                             <div class="text-right">
-                                <a href="crear-categoria.php" class="btn btn-success">
+                                <a href="?c=Categorias&a=crear_categoria" class="btn btn-success">
                                     ✚ Crear categoria
                                 </a>
                             </div>

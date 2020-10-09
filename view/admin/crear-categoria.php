@@ -20,7 +20,7 @@
                     <h4 class="text-secondary">Agregar categoria</h4>
                     <hr class="pb-2 pt-2">
                 </div>
-                <form action="" method="POST">
+                <form action="?c=Categorias&a=guardar" method="POST">
                     <div class="form-group form-inline">
                         <label>Nombre de la categoria</label>
                         <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off">
