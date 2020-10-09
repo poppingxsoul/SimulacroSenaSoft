@@ -32,32 +32,33 @@ class categorias
 
     public function eliminar($id)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where id=:id ");
-        $stmt->bindParam(':dato', $id, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where idcategoria=:idcategoria ");
+        $stmt->bindParam(':idcategoria', $id, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
     public function actualizar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("UPDATE tabla SET dato=:dato,dato=:dato,dato=:dato,dato=:dato WHERE id=:id ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare
+        ("UPDATE categorias SET nombre=:nombre,descripcion=:descripcion WHERE idcategoria=:idcategoria ");
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
     public function validacion($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios where numero=:iden");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare
+        ("SELECT * FROM categorias where idcategoria=:idcategoria");
+        $stmt->bindParam(':idcategoria', $datos['idcategoria'], PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->closeCursor();
     }
-    public function listar_usuarios()
+    public function listar_categorias()
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios");
+        $stmt = $this->conexion->conectar()->prepare
+        ("SELECT * FROM categorias WHERE condicion=1");
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->closeCursor();
