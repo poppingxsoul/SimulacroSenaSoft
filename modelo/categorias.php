@@ -10,18 +10,21 @@ class categorias
     }
     public function insertar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("INSERT INTO tabla ()values(:dato,:dato,:dato,:dato) ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare
+        
+        ("INSERT INTO categorias (nombre, descripcion, condicion)
+        values(:nombre,:descripcion,:condicion) ");
+
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
+        $stmt->bindParam(':condicion', 1 , PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
     }
 
     public function eliminar($id)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM tabla where id=:id ");
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where id=:id ");
         $stmt->bindParam(':dato', $id, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
