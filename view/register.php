@@ -39,16 +39,23 @@
                 <hr>
                 <form action="?c=Usuarios&a=registrar" method="POST">
                     <div class="form-group pt-1">
-                        <input type="text" class="form-control p pb-4" name="nombres" placeholder="Nombres completos" required="">
+                        <input type="text" class="form-control p pb-4" name="nombres" placeholder="Nombres completos" required="" autofocus autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
-                        <input type="email" class="form-control p pb-4" name="email" placeholder="Email" required="">
+                        <input type="email" class="form-control p pb-4" name="email" placeholder="Email" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-2">
-                        <input type="number" class="form-control p pb-4" name="identificacion" placeholder="Numero de identificación" required="">
+                        <select name="" class="form-control p pb-4">
+                            <option value="">Tipo de documento de identidad</option>
+                            <option value="">Cédula de ciudadano</option>
+                            <option value="">Tarjeta de identidad</option>
+                        </select>
                     </div>
                     <div class="form-group pt-2">
-                        <input type="password" class="form-control p pb-4" name="pass" placeholder="Contraseña" required="">
+                        <input type="number" class="form-control p pb-4" name="identificacion" placeholder="Numero de identificación" required="" autocomplete="off">
+                    </div>
+                    <div class="form-group pt-2">
+                        <input type="password" class="form-control p pb-4" name="pass" placeholder="Contraseña" required="" autocomplete="off">
                     </div>
                     <div class="form-group pt-3">
                         <input type="submit" class="form-control btn btn-info" value="Registrarse">
