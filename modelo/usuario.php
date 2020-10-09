@@ -45,7 +45,7 @@ class usuario
         return $stmt->fetchAll();
         $stmt->closeCursor();
     }
-    public function listar_usuarios($dato)
+    public function listar_usuarios()
     {
         $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios");
         $stmt->execute();
