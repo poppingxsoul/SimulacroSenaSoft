@@ -12,7 +12,7 @@ class conexion
         $this->server = 'localhost';
         $this->user = 'root';
         $this->pass = '';
-        $this->bd = '';
+        $this->bd = 'db_inventario';
     }
     public function conectar()
     {

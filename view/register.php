@@ -37,7 +37,7 @@
             <div class="container p-5">
                 <h4 class="text-muted">Registrarse</h4>
                 <hr>
-                <form action="" method="POST">
+                <form action="?c=Usuarios&a=registrar" method="POST">
                     <div class="form-group pt-1">
                         <input type="text" class="form-control p pb-4" name="nombres" placeholder="Nombres completos" required="">
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group pt-3 pb-0 mb-4">
                         <span class="text-dark">¿Tienes una cuenta?</span>
-                        <a href="index.php">Inicia sesión</a>
+                        <a href="?c=Usuarios&a=index">Inicia sesión</a>
                     </div>
                 </form>
             </div>

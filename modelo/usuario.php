@@ -30,7 +30,7 @@ class usuario
     public function actualizar($datos)
     {
         $stmt = $this->conexion->conectar()->prepare("UPDATE tabla SET dato=:dato,dato=:dato,dato=:dato,dato=:dato WHERE id=:id ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt->bindParam(':dato', $datos[''], PDO::PARAM_STR);
         $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
         $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
         $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);

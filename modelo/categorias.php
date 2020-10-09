@@ -10,11 +10,12 @@ class categorias
     }
     public function insertar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("INSERT INTO tabla ()values(:dato,:dato,:dato,:dato) ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("INSERT INTO categorias (idcategoria,nombre,descripcion,condicion)
+        values(:idcategoria,:nombre,:descripcion,:condicion) ");
+        $stmt->bindParam(':idcategoria', $datos, PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $datos, PDO::PARAM_STR);
+        $stmt->bindParam(':condicion', $datos, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }

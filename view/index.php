@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group pt-3">
                         <span class="text-dark">¿No tienes una cuenta?</span>
-                        <a href="register.php">Registrate</a>
+                        <a href="?c=Usuarios&a=registro">Registrate</a>
                     </div>
                 </div>
             </div>
