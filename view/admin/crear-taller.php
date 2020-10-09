@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Crear proveedor</title>
+    <title>Crear taller</title>
 </head>
 
 <body>
@@ -17,12 +17,12 @@
         <div class="card shadow-lg p-3 mb-3 bg-white rounded mt-4" style="max-width: 900px; margin: 0 auto;">
             <div class="card-body">
                 <div class="card-title pb-2 text-center">
-                    <h4 class="text-secondary">Agregar proveedor</h4>
+                    <h4 class="text-secondary">Agregar taller</h4>
                     <hr class="pb-2 pt-2">
                 </div>
                 <form action="" method="POST">
                     <div class="form-group form-inline">
-                        <label>Nombre del proveedor</label>
+                        <label>Nombre del taller</label>
                         <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
                     </div>
 
@@ -58,10 +58,10 @@
                     <hr class="pt-4 mt-5">
                     <div class="form-row mt-4">
                         <div class="col-md-6 mb-3 pr-4">
-                            <a href="proveedores.php" class="btn btn-danger form-control">Cancelar</a>
+                            <a href="talleres.php" class="btn btn-danger form-control">Cancelar</a>
                         </div>
                         <div class="col-md-6 mb-3  pr-4">
-                            <input class="btn btn-info form-control" value="Crear proveedor" type="submit">
+                            <input class="btn btn-info form-control" value="Guardar" type="submit">
                         </div>
                     </div>
                 </form>
