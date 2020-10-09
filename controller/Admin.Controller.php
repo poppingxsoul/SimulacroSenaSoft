@@ -52,6 +52,7 @@ class AdminController
         $this->datos['tipo'] = $_POST['tipo'];
         $this->tipo = $_POST['tipo'];
 
+<<<<<<< HEAD
         $this->model->actualizar($this->datos);
         if ($this->tipo = 'proveedores') {
             require_once 'view/admin/proveedores.php';
@@ -60,3 +61,7 @@ class AdminController
         }
     }
 }
+=======
+}
+?>
+>>>>>>> 9b85a38981d911eb28a1dfb7a5f2c2ffdf8adb3b
