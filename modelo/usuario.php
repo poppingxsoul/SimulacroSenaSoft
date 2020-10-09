@@ -11,40 +11,49 @@ class usuario
 
     public function insertar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("INSERT INTO tabla ()values(:dato,:dato,:dato,:dato) ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("INSERT INTO usuarios
+        (tipo_documento,no_documento,nombre,email,clave)values(:tipo_documento,:no_documento,:nombre,:email,:clave) ");
+        $stmt->bindParam(':tipo_documento', $datos['tipo_documento'], PDO::PARAM_STR);
+        $stmt->bindParam(':no_documento', $datos['no_documento'], PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':clave', $datos['clave'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
 
-    public function eliminar($id)
+    public function eliminar($id_usuario)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM tabla where id=:id ");
-        $stmt->bindParam(':dato', $id, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where id_usuario=:id ");
+        $stmt->bindParam(':id', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
-    public function actualizar($datos)
+    public function actualizar($id_usuario, $datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("UPDATE tabla SET dato=:dato,dato=:dato,dato=:dato,dato=:dato WHERE id=:id ");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("UPDATE usuarios SET 
+        tipo_documento=:tipo_documento,no_documento=:no_documento,
+        nombre=:nombre,email=:email, clave=:clave
+        WHERE id_usuario=:id ");
+        $stmt->bindParam(':tipo_documento', $datos['tipo_documento'], PDO::PARAM_STR);
+        $stmt->bindParam(':no_documento', $datos['no_documento'], PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':clave', $datos['clave'], PDO::PARAM_STR);
+        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
-    public function validacion($datos)
+    public function validacion($identificacion)
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios where numero=:iden");
-        $stmt->bindParam(':dato', $datos, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,id_ciudadano,nombre FROM ciudadano 
+        WHERE  numero_identificacion=:identificacion ");
+        $stmt->bindParam(':identificacion', $identificacion, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->closeCursor();
     }
+    
     public function listar_usuarios()
     {
         $stmt = $this->conexion->conectar()->prepare("SELECT * FROM usuarios");
