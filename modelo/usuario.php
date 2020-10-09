@@ -24,7 +24,7 @@ class usuario
 
     public function eliminar($id_usuario)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where id_usuario=:id ");
+        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where idusuario=:id ");
         $stmt->bindParam(':id', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
@@ -46,7 +46,7 @@ class usuario
     }
     public function validacion($identificacion)
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,id_ciudadano,nombre FROM ciudadano 
+        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,idusuario,nombre FROM ciudadano 
         WHERE  numero_identificacion=:identificacion ");
         $stmt->bindParam(':identificacion', $identificacion, PDO::PARAM_STR);
         $stmt->execute();
