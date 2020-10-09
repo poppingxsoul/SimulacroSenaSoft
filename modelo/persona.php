@@ -8,7 +8,7 @@ class persona
     {
         $this->conexion = new conexion();
     }
-    public function insertar($datos,$tipo)
+    public function insertar($datos)
     {
         $stmt = $this->conexion->conectar()->prepare
         
@@ -22,7 +22,7 @@ class persona
         $stmt->bindParam(':direccion', $datos['direccion'], PDO::PARAM_STR);
         $stmt->bindParam(':telefono', $datos['telefono'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':tipo', $tipo, PDO::PARAM_STR);
+        $stmt->bindParam(':tipo', $datos['tipo'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
@@ -42,17 +42,9 @@ class persona
         $stmt->bindParam(':direccion', $datos['direccion'], PDO::PARAM_STR);
         $stmt->bindParam(':telefono', $datos['telefono'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
+        $stmt->bindParam(':idpersona', $datos['id'], PDO::PARAM_STR);
         
         $stmt->execute();
-        $stmt->closeCursor();
-    }
-    public function validacion($datos)
-    {
-        $stmt = $this->conexion->conectar()->prepare
-        ("SELECT * FROM persona where idpersona=:idpersona");
-        $stmt->bindParam(':idpersona', $datos, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll();
         $stmt->closeCursor();
     }
 

@@ -50,7 +50,7 @@ class UsuariosController
     }
     public function validar()
     {
-        $no_documento = $_POST['no_documento'];
+        /*$no_documento = $_POST['no_documento'];
         $clave = $_POST['clave'];
 
         $resultado = $this->model->validacion($no_documento);
@@ -60,7 +60,7 @@ class UsuariosController
             if ($verificacion == 1) {
                 $_SESSION['idusuario'] = $resultado[0]['idusuario'];
                 $_SESSION['nombre'] = $resultado[0]['nombre'];
-                require_once 'view/admin/usuarios';
+                header("location:?c=&a=");
             } else {
                 echo '<script>alert("Contraseña incorrecta")</script>';
                 require_once 'view/index.php';
@@ -68,7 +68,8 @@ class UsuariosController
         } else {
             echo '<script>alert("Usuario no existe")</script>';
             require_once 'view/index.php';
-        }
+        }*/
+        header("location:?c=Admin&a=index");
     }
 
 
