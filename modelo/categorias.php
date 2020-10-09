@@ -10,8 +10,12 @@ class categorias
     }
     public function insertar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("INSERT INTO categorias (idcategoria,nombre,descripcion,condicion)
+        $stmt = $this->conexion->conectar()->prepare
+        
+        ("INSERT INTO categorias 
+        (idcategoria,nombre,descripcion,condicion)
         values(:idcategoria,:nombre,:descripcion,:condicion) ");
+
         $stmt->bindParam(':idcategoria', $datos, PDO::PARAM_STR);
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':descripcion', $datos, PDO::PARAM_STR);
