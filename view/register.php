@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Registrarse</title>
 </head>
@@ -14,7 +14,7 @@
     <header class="container-fluid mb-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
             <a class="navbar-brand" href="index.php">
-                <img src="assets/img/logosoft.png" class="p-2" alt="SenaSoft 2020" width="100px">
+                <img src="../assets/img/logosoft.png" class="p-2" alt="SenaSoft 2020" width="100px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
             <div class="container p-5">
                 <h4 class="text-muted">Registrarse</h4>
                 <hr>
-                <form action="" method="POST">
+                <form action="?c=Usuarios&a=registrar" method="POST">
                     <div class="form-group pt-1">
                         <input type="text" class="form-control p pb-4" name="nombres" placeholder="Nombres completos" required="">
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="form-group pt-3 pb-0 mb-4">
                         <span class="text-dark">¿Tienes una cuenta?</span>
-                        <a href="index.php">Inicia sesión</a>
+                        <a href="?c=Usuarios&a=index">Inicia sesión</a>
                     </div>
                 </form>
             </div>
