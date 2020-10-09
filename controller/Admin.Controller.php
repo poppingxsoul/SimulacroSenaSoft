@@ -13,8 +13,5 @@ class AdminController
         $this->datos = array();
     }
 
-
-
-
-
+}
 ?>
