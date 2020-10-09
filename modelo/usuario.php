@@ -29,7 +29,7 @@ class usuario
         $stmt->execute();
         $stmt->closeCursor();
     }
-    public function actualizar($id_usuario, $datos)
+    public function actualizar($idusuario, $datos)
     {
         $stmt = $this->conexion->conectar()->prepare("UPDATE usuarios SET 
         tipo_documento=:tipo_documento,no_documento=:no_documento,
@@ -40,7 +40,7 @@ class usuario
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
         $stmt->bindParam(':clave', $datos['clave'], PDO::PARAM_STR);
-        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':idusuario', $id_usuario, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }

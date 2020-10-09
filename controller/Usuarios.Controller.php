@@ -34,8 +34,11 @@ class UsuariosController
             
             $this->datos['clave'] = password_hash($_POST['clave'], PASSWORD_BCRYPT);
 
+            var_dump($this->datos);
             //Insercion
+
             $resultado=$this->model->insertar($this->datos);
+
             if ($resultado = 1) {
                 echo '<script>alert("Ya estas registrado,puedes iniciar sesion")</script>';
                 require_once 'view/index.php';
