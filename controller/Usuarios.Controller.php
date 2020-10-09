@@ -37,6 +37,8 @@ class UsuariosController
                     # code...
                     break;
             }
+            $this->datos=['id','nombre'];
+            $this->model->insertar($this->datos);
         }
     }
     
