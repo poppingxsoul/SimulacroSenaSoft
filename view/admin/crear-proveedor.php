@@ -20,15 +20,16 @@
                     <h4 class="text-secondary">Agregar proveedor</h4>
                     <hr class="pb-2 pt-2">
                 </div>
-                <form action="" method="POST">
+                <form action="?c=Admin&a=guardar" method="POST">
                     <div class="form-group form-inline">
                         <label>Nombre del proveedor</label>
+                        <input type="hidden" name="tipo" value="proveedor">
                         <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
                     </div>
 
                     <div class="form-group form-inline">
                         <label>Tipo de documento</label>
-                        <select class="form-control p2 mx-sm-3" value="" required>
+                        <select class="form-control p2 mx-sm-3" name="tipo_documento" value="" required>
                             <option selected disabled value=""> </option>
                             <option>Cédula de ciudadania</option>
                             <option>NIT</option>                          
@@ -37,7 +38,7 @@
 
                     <div class="form-group form-inline">
                         <label>Número de documento</label>
-                        <input type="number" name="numero" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
+                        <input type="number" name="no_documento" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
                     </div>
                     
                     <div class="form-group form-inline">

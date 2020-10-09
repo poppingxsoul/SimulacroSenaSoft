@@ -18,6 +18,9 @@ class UsuariosController
     {
         require_once 'view/index.php';
     }
+    public function listar(){
+        require_once'view/admin/usuarios.php';
+    }
     public function registro()
     {
         require_once 'view/register.php';

@@ -14,7 +14,7 @@ class persona
         
         ("INSERT INTO persona 
         (nombre,tipo_documento,no_documento,direccion,telefono,email,tipo)
-        values(:nombre,:tipo_documento,:no_documenton,:direccion,:telefono,:email,:tipo) ");
+        values(:nombre,:tipo_documento,:no_documento,:direccion,:telefono,:email,:tipo) ");
 
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':tipo_documento', $datos['tipo_documento'], PDO::PARAM_STR);
@@ -52,7 +52,8 @@ class persona
     public function listar_personas($tipo)
     {
         $stmt = $this->conexion->conectar()->prepare
-        ("SELECT * FROM persona WHERE tipo=$tipo");
+        ("SELECT * FROM persona WHERE tipo=:tipo");
+        $stmt->bindParam(':tipo',$tipo,PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->closeCursor();

@@ -14,7 +14,7 @@
                             Almacen
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="categorias.php">Categorias</a>
+                            <a class="dropdown-item" href="?c=Categorias&a=index">Categorias</a>
                             <a class="dropdown-item" href="productos.php">Producto</a>
                         </div>
                     </li>
@@ -23,7 +23,7 @@
                             Inventario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="proveedores.php">Proveedores</a>
+                            <a class="dropdown-item" href="?c=Admin&a=proveedores">Proveedores</a>
                             <a class="dropdown-item" href="compras.php">Compras</a>
                         </div>
                     </li>
@@ -32,8 +32,8 @@
                             Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="talleres.php">Talleres</a>
-                            <a class="dropdown-item" href="solicitudes.php">Solicitudes</a>
+                            <a class="dropdown-item" href="?c=Admin&a=talleres">Talleres</a>
+                            <a class="dropdown-item" href="?c=Admin&a=talleres">Solicitudes</a>
                         </div>
                     </li>
 
@@ -42,7 +42,7 @@
                             Acceso
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="usuarios.php">Usuarios</a>
+                            <a class="dropdown-item" href="?c=Usuarios&a=listar">Usuarios</a>
                         </div>
                     </li>
                 </ul>

@@ -13,7 +13,12 @@ class CategoriasController
         $this->session = session_start();
         $this->datos = array();
     }
-
+    public function index(){
+        require_once'view/admin/categorias.php';
+    }
+    public function crear_categoria(){
+        require_once'view/admin/crear-categoria.php';
+    }
     public function guardar()
     {
 
