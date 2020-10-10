@@ -13,19 +13,19 @@ class categorias
         $stmt = $this->conexion->conectar()->prepare
         
         ("INSERT INTO categorias (nombre, descripcion, condicion)
-        values(:nombre,:descripcion,:condicion) ");
+        values(:nombre,:descripcion,1) ");
 
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
-        $stmt->bindParam(':condicion', 1 , PDO::PARAM_INT);
+
         $stmt->execute();
         $stmt->closeCursor();
     }
 
     public function eliminar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM categorias where idcategoria=:idcategoria ");
-        $stmt->bindParam(':idcategoria', $datos['id'], PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("UPDATE categorias SET condicion=0 where idcategoria=idcategoria");
+        $stmt->bindParam(':idcategoria', $datos['idcategoria'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }

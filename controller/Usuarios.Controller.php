@@ -30,24 +30,25 @@ class UsuariosController
     {
         if (isset($_POST) & !empty($_POST)) {
             //Agregar los datos al array
-            $this->datos['nombre'] = $_POST['nombre'];
-            $this->datos['email'] = $_POST['email'];
             $this->datos['tipo_documento'] = $_POST['tipo_documento'];
             $this->datos['no_documento'] = $_POST['no_documento'];
-            
-            $this->datos['clave'] = password_hash($_POST['clave'], PASSWORD_BCRYPT);
+            $this->datos['nombre'] = $_POST['nombre'];
+            $this->datos['email'] = $_POST['email'];
 
-            var_dump($this->datos);
+            $this->datos['clave'] = $_POST['clave'];
+            $this->datos['clave'] = password_hash($this->datos['clave'], PASSWORD_BCRYPT);
+
+
             //Insercion
 
             $resultado=$this->model->insertar($this->datos);
 
-            if ($resultado = 1) {
+            if ($resultado == 1) {
                 echo '<script>alert("Ya estas registrado,puedes iniciar sesion")</script>';
                 require_once 'view/index.php';
             } else {
-                echo '<script>alert("Credenciales incorrectas")</script>';
-                require_once 'view/index.php';
+                echo '<script>alert("Usuario no registrado")</script>';
+                require_once 'view/register.php';
             }
         }
     }
@@ -63,7 +64,7 @@ class UsuariosController
             if ($verificacion == 1) {
                 $_SESSION['idusuario'] = $resultado[0]['idusuario'];
                 $_SESSION['nombre'] = $resultado[0]['nombre'];
-                header("location:?c=&a=");
+                require_once'view/admin/usuarios.php';
             } else {
                 echo '<script>alert("Contraseña incorrecta")</script>';
                 require_once 'view/index.php';
@@ -72,7 +73,13 @@ class UsuariosController
             echo '<script>alert("Usuario no existe")</script>';
             require_once 'view/index.php';
         }
-        header("location:?c=Admin&a=index");
+        
+    }
+    public function eliminar(){
+        $this->datos['idusuario']=$_REQUEST['idusuario'];
+        
+        $this->model->eliminar($this->datos);
+        require_once'view/admin/usuarios.php';
     }
 
 

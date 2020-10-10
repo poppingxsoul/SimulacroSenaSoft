@@ -38,7 +38,7 @@
 
                         <div class="container" id="alerta-no-results" style="display: none;max-width: 600px;">
                             <div class="alert alert-danger" role="alert">
-                                No hay resultados para mostrar                               
+                                No hay resultados para mostrar
                             </div>
                         </div>
 
@@ -53,17 +53,18 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
-                                    <tr>
-                                    <?php foreach($this->model->listar_usuarios() as $lista):?>
-                                        <td><?php echo $lista['nombre']?></td>
-                                        <td><?php echo $lista['no_documento']?></td>
-                                        <td><?php echo $lista['email']?></td>
-                                        <td>
-                                    <?php endforeach;?>
-                                            <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
-                                            <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($this->model->listar_usuarios() as $lista) : ?>
+                                        <tr>
+
+                                            <td><?php echo $lista['nombre'] ?></td>
+                                            <td><?php echo $lista['no_documento'] ?></td>
+                                            <td><?php echo $lista['email'] ?></td>
+                                            <td>
+                                                <a href="?c=Usuarios&a=eliminar&idusuario=<?= $lista['idusuario'] ?>"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span></a>
+                                                <a data-toggle="modal" id="<?= $id=$lista['idusuario'];?>" href="" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
+                                            </td>
+                                        <?php endforeach; ?>
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -89,12 +90,12 @@
                     <div class="modal-body">
                         <div class="form-group form-inline">
                             <label>Nombre del usuario</label>
-                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
+                            <input type="text" name="nombre" value="<?php echo $id?>" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Tipo de documento</label>
-                            <select class="form-control p2 mx-sm-3" value="" required>
+                            <select class="form-control p2 mx-sm-3" name="tipo_documento" value="" required>
                                 <option selected disabled value=""> </option>
                                 <option>Cédula de ciudadania</option>
                                 <option>Trajeta de identidad</option>
@@ -103,7 +104,7 @@
 
                         <div class="form-group form-inline">
                             <label>Número de documento</label>
-                            <input type="number" name="numero" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
+                            <input type="number" name="no_documento" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 70%;">
                         </div>
 
                         <div class="form-group form-inline">
@@ -126,7 +127,25 @@
             </div>
         </div>
     </div>
-
+    <script>
+        $('#edit-modal').on('show.bs.modal', function(e) {
+            
+            var $modal = $(this),
+                esseyId = e.relatedTarget.id;
+            
+//            $.ajax({
+//                cache: false,
+//                type: 'POST',
+//                url: 'backend.php',
+//                data: 'EID='+essay_id,
+//                success: function(data) 
+//                {
+                    $modal.find('.edit-content').html(esseyId);
+//                }
+//            });
+            
+        })
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

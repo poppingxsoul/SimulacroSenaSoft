@@ -21,7 +21,6 @@ class CategoriasController
     }
     public function guardar()
     {
-
         $this->datos['nombre'] = $_POST['nombre'];
         $this->datos['descripcion'] = $_POST['descripcion'];
 
@@ -30,7 +29,7 @@ class CategoriasController
     }
     public function eliminar()
     {
-        $this->datos['id'] = $_POST['id'];
+        $this->datos['idcategoria'] = $_REQUEST['idcategoria'];
         $this->model->eliminar($this->datos);
         require_once 'view/admin/categorias.php';
     }

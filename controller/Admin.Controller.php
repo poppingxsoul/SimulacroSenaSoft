@@ -17,14 +17,21 @@ class AdminController
     {
         require_once 'view/admin/usuarios.php';
     }
-    public function talleres(){
-        require_once'view/admin/talleres.php';
+    public function talleres()
+    {
+        require_once 'view/admin/talleres.php';
     }
-    public function crear_proveedor_vista(){
-        require_once'view/admin/crear-proveedor.php';
+    public function crear_talleres_vista()
+    {
+        require_once 'view/admin/crear-taller.php';
     }
-    public function proveedores(){
-        require_once'view/admin/proveedores.php';
+    public function crear_proveedor_vista()
+    {
+        require_once 'view/admin/crear-proveedor.php';
+    }
+    public function proveedores()
+    {
+        require_once 'view/admin/proveedores.php';
     }
     public function guardar()
     {
@@ -36,26 +43,30 @@ class AdminController
             $this->datos['telefono'] = $_POST['telefono'];
             $this->datos['email'] = $_POST['email'];
             $this->datos['tipo'] = $_POST['tipo'];
-            
+
             $this->model->insertar($this->datos);
-            
-            if ($this->tipo = 'proveedores') {
+
+            if ($this->datos['tipo'] == 'proveedor') {
                 require_once 'view/admin/proveedores.php';
-            } elseif ($this->tipo = 'talleres') {
+            } elseif ($this->datos['tipo'] == 'taller') {
                 require_once 'view/admin/talleres.php';
             }
         }
     }
     public function eliminar()
     {
-        $id = $_POST['id'];
+        $id = $_REQUEST['id'];
+        $tipo = $_REQUEST['tipo'];
         $this->model->eliminar($id);
-        if ($this->tipo = 'proveedores') {
+
+        if ($tipo == 'proveedor') {
             require_once 'view/admin/proveedores.php';
-        } elseif ($this->tipo = 'talleres') {
+        } elseif ($tipo == 'taller') {
             require_once 'view/admin/talleres.php';
         }
     }
+
+
     public function actualizar()
     {
         $this->datos['id'] = $_POST['id'];
@@ -65,10 +76,9 @@ class AdminController
         $this->datos['tipo'] = $_POST['tipo'];
         $this->tipo = $_POST['tipo'];
 
-        $this->model->actualizar($this->datos);
-        if ($this->tipo = 'proveedores') {
+        if ($this->datos['tipo'] == 'proveedor') {
             require_once 'view/admin/proveedores.php';
-        } elseif ($this->tipo = 'talleres') {
+        } elseif ($this->datos['tipo'] == 'taller') {
             require_once 'view/admin/talleres.php';
         }
     }

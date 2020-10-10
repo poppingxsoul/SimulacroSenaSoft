@@ -7,7 +7,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="mr-auto"><?php echo "NOMBRE USUARIO" ?></div>
+                <div class="mr-auto"><?php echo $_SESSION['nombre'] ?></div>
                 <ul class="navbar-nav form-inline my-2 my-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle px-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

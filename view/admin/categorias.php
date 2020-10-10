@@ -53,15 +53,19 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
+                                <?php foreach ($this->model->listar_categorias() as $lista):?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Categoria 1</td>
-                                        <td>Tipo idk</td>
+                                        
+
+                                        <td><?=$lista['idcategoria'] ?></td>
+                                        <td><?=$lista['nombre'] ?></td>
+                                        <td><?=$lista['descripcion'] ?></td>
                                         <td>
-                                            <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                        <a href="?c=Categorias&a=eliminar&idcategoria=<?= $lista['idcategoria'] ?>"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
                                             <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
                                         </td>
                                     </tr>
+                                <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>

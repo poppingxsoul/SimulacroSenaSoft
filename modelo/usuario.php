@@ -11,21 +11,28 @@ class usuario
 
     public function insertar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("INSERT INTO usuarios
-        (tipo_documento,no_documento,nombre,email,clave)values(:tipo_documento,:no_documento,:nombre,:email,:clave) ");
-        $stmt->bindParam(':tipo_documento', $datos['tipo_documento'], PDO::PARAM_STR);
-        $stmt->bindParam(':no_documento', $datos['no_documento'], PDO::PARAM_STR);
-        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
-        $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':clave', $datos['clave'], PDO::PARAM_STR);
+        $stmt=$this->conexion->conectar()->prepare("INSERT INTO usuarios (tipo_documento,no_documento,nombre,email,clave
+        )VALUES(:tipo_documento,:no_documento,:nombre,:email,:clave)");
+        
+        $stmt->bindParam(':tipo_documento',$datos['tipo_documento'],PDO::PARAM_STR);
+        $stmt->bindParam(':no_documento',$datos['no_documento'],PDO::PARAM_INT);
+        $stmt->bindParam(':nombre',$datos['nombre'],PDO::PARAM_STR);
+        $stmt->bindParam(':email',$datos['email'],PDO::PARAM_STR);
+        $stmt->bindParam(':clave',$datos['clave'],PDO::PARAM_STR);
+        
         $stmt->execute();
+        return $stmt->fetchAll();
         $stmt->closeCursor();
+
+
+
+
     }
 
     public function eliminar($id_usuario)
     {
-        $stmt = $this->conexion->conectar()->prepare("DELETE FROM usuario where idusuario=:id ");
-        $stmt->bindParam(':id', $id_usuario, PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("DELETE  FROM usuarios where idusuario=:id ");
+        $stmt->bindParam(':id', $id_usuario['idusuario'], PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
     }
@@ -46,8 +53,8 @@ class usuario
     }
     public function validacion($identificacion)
     {
-        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,idusuario,nombre FROM ciudadano 
-        WHERE  numero_identificacion=:identificacion ");
+        $stmt = $this->conexion->conectar()->prepare("SELECT no_documento,clave,idusuario,nombre FROM usuarios 
+        WHERE  no_documento=:identificacion ");
         $stmt->bindParam(':identificacion', $identificacion, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();

@@ -55,19 +55,19 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
-                                    <tr>
+                                   
                                         <?php foreach ($this->model->listar_personas("proveedor") as $lista) : ?>
-
+                                            <tr>
                                             <td><?= $lista['nombre']; ?></td>
                                             <td><?= $lista['no_documento']; ?></td>
                                             <td><?= $lista['direccion']; ?></td>
                                             <td><?= $lista['telefono']; ?></td>
                                             <td><?= $lista['email']; ?></td>
                                             <td>
-                                                <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                                <a href="?c=Admin&a=eliminar&id=<?=$lista['idpersona']?>&tipo=proveedor"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
                                                 <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
                                             </td>
-                                    <tr>
+                                    
                                     <?php endforeach; ?>
 
 

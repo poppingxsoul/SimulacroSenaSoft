@@ -13,11 +13,10 @@ class inventario
         $stmt = $this->conexion->conectar()->prepare
         
         ("INSERT INTO inventario (idproveedor, no_comprobante, fecha_hora)
-        values(:idproveedor,:no_comprobante,:fecha_hora) ");
+        values(:idproveedor,:no_comprobante,NOW()) ");
 
         $stmt->bindParam(':idproveedor', $datos['idproveedor'], PDO::PARAM_INT);
         $stmt->bindParam(':no_comprobante', $datos['no_comprobante'], PDO::PARAM_STR);
-        $stmt->bindParam(':fecha_hora', 'Aqui va la hora del sistema en tiempo real' , PDO::PARAM_DATATIME);
         $stmt->execute();
         $stmt->closeCursor();
     }

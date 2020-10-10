@@ -23,7 +23,7 @@
                                 <h4>Talleres</h4>
                             </div>
                             <div class="text-right">
-                                <a href="crear-taller.php" class="btn btn-success">
+                                <a href="?c=Admin&a=crear_talleres_vista" class="btn btn-success">
                                     ✚ Crear taller
                                 </a>
                             </div>
@@ -55,17 +55,19 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
-                                    <tr>
-                                        <td>Pepito Perez</td>
-                                        <td>1003264894</td>
-                                        <td>Carrera 32 # 19 A-50</td>
-                                        <td>304369742</td>
-                                        <td>pepe@email.com</td>
-                                        <td>
-                                            <span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
-                                            <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
-                                        </td>
-                                    </tr>
+                                <?php foreach ($this->model->listar_personas("taller") as $lista) : ?>
+                                            <tr>
+                                            <td><?= $lista['nombre']; ?></td>
+                                            <td><?= $lista['no_documento']; ?></td>
+                                            <td><?= $lista['direccion']; ?></td>
+                                            <td><?= $lista['telefono']; ?></td>
+                                            <td><?= $lista['email']; ?></td>
+                                            <td>
+                                            <a href="?c=Admin&a=eliminar&id=<?=$lista['idpersona']?>&tipo=taller"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                                <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
+                                            </td>
+                                    
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
