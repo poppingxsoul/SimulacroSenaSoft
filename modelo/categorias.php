@@ -24,8 +24,8 @@ class categorias
 
     public function eliminar($datos)
     {
-        $stmt = $this->conexion->conectar()->prepare("UPDATE categorias SET condicion=0 where idcategoria=idcategoria");
-        $stmt->bindParam(':idcategoria', $datos['idcategoria'], PDO::PARAM_STR);
+        $stmt = $this->conexion->conectar()->prepare("UPDATE categorias SET condicion=0 where idcategoria=:id");
+        $stmt->bindParam(':id', $datos['idcategoria'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
@@ -35,6 +35,7 @@ class categorias
         ("UPDATE categorias SET nombre=:nombre,descripcion=:descripcion WHERE idcategoria=:idcategoria ");
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':descripcion', $datos['descripcion'], PDO::PARAM_STR);
+        $stmt->bindParam(':idcategoria', $datos['idcategoria'], PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
     }
