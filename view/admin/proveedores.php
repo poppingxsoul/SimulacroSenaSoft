@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
     <title>Lista de proveedores</title>
 </head>
 
@@ -55,23 +57,24 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
-                                   
-                                        <?php foreach ($this->model->listar_personas("proveedor") as $lista) : ?>
-                                            <tr>
+
+                                    <?php foreach ($this->model->listar_personas("proveedor") as $lista) : ?>
+                                        <tr>
                                             <td><?= $lista['nombre']; ?></td>
                                             <td><?= $lista['no_documento']; ?></td>
                                             <td><?= $lista['direccion']; ?></td>
                                             <td><?= $lista['telefono']; ?></td>
                                             <td><?= $lista['email']; ?></td>
                                             <td>
-                                                <a href="?c=Admin&a=eliminar&id=<?=$lista['idpersona']?>&tipo=proveedor"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
-                                                <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
+
+                                                <a href="?c=Admin&a=eliminar&id=<?= $lista['idpersona'] ?>&tipo=proveedor"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                                    <a href="javascript:void(0)" onclick="mostarDetalles('<?= $lista['nombre'] ?>','<?= $lista['no_documento'] ?>','<?= $lista['tipo_documento'] ?>','<?= $lista['direccion'] ?>','<?= $lista['telefono'] ?>','<?= $lista['email'] ?>','<?= $lista['idpersona'] ?>')" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
                                             </td>
-                                    
-                                    <?php endforeach; ?>
+
+                                        <?php endforeach; ?>
 
 
-                                    </tr>
+                                        </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -81,8 +84,24 @@
         </div>
     </div>
 
+    <div id="divModal"></div>
+    <script>
+        function mostarDetalles(nombre, no_documento, tipo_documento, direccion, telefono, email, idpersona) {
+            $('#actualizar').modal('show');
+
+            document.getElementById("nombre").value = nombre;
+            document.getElementById("no_documento").value = no_documento;
+            document.getElementById("tipo_documento").value = tipo_documento;
+            document.getElementById("direccion").value = direccion;
+            document.getElementById("telefono").value = telefono;
+            document.getElementById("email").value = email;
+            document.getElementById("idpersona").value = idpersona;
+
+        }
+    </script>
 
     <!-- Actualizar proveedor (Ventana modal) -->
+
 
     <div class="modal" tabindex="-1" id="actualizar">
         <div class="modal-dialog modal-lg">
@@ -93,36 +112,42 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="POST">
+                <form action="?c=Admin&a=actualizar" method="POST">
                     <div class="modal-body">
                         <div class="form-group form-inline">
                             <label>Nombre del proveedor</label>
-                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                            <input type="text" name="nombre" id="nombre" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
                         </div>
+
+
+                        <input type="hidden" name="idpersona" id="idpersona" value="" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                        <input type="hidden" name="tipo" value="proveedor" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
 
                         <div class="form-group form-inline">
                             <label>Tipo de documento</label>
-                            <input type="text" value="?" class="form-control p2 mx-sm-3" readonly>
+
+                            <input type="text" value="" id="tipo_documento" class="form-control p2 mx-sm-3" readonly>
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Número de documento</label>
-                            <input type="number" name="numero" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
+                            <input type="number" name="numero" id="no_documento" class="form-control p2 mx-sm-3" readonly autocomplete="off" style="max-width: 70%;">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Dirección</label>
-                            <input type="text" name="direccion" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                            <input type="text" name="direccion" id="direccion" class="form-control p2 mx-sm-3" required="" autocomplete="off">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Telefono</label>
-                            <input type="number" name="telefono" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+                            <input type="number" name="telefono" id="telefono" class="form-control p2 mx-sm-3" required="" autocomplete="off">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control p2 mx-sm-3" required="" autocomplete="off">
+
+                            <input type="email" name="email" id="email" class="form-control p2 mx-sm-3" required="" autocomplete="off">
                         </div>
 
                         <hr class="pt-4 mt-5">
@@ -131,7 +156,7 @@
                                 <a href="#" class="btn btn-danger form-control" data-dismiss="modal">Cancelar</a>
                             </div>
                             <div class="col-md-6 mb-3  pr-4">
-                                <input class="btn btn-info form-control" value="Actualizar" type="submit">
+                                <input type="submit" class="btn btn-info form-control" value="Actualizar">
                             </div>
                         </div>
 
@@ -141,11 +166,12 @@
         </div>
     </div>
 
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
