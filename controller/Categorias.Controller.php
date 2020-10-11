@@ -38,6 +38,8 @@ class CategoriasController
         $this->datos['id'] = $_POST['id'];
         $this->datos['nombre'] = $_POST['nombre'];
         $this->datos['descripcion'] = $_POST['descripcion'];
+
+        var_dump($this->datos);
         require_once 'view/admin/categorias.php';
     }
 }

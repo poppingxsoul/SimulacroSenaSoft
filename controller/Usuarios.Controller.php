@@ -18,8 +18,9 @@ class UsuariosController
     {
         require_once 'view/index.php';
     }
-    public function listar(){
-        require_once'view/admin/usuarios.php';
+    public function listar()
+    {
+        require_once 'view/admin/usuarios.php';
     }
     public function registro()
     {
@@ -41,7 +42,7 @@ class UsuariosController
 
             //Insercion
 
-            $resultado=$this->model->insertar($this->datos);
+            $resultado = $this->model->insertar($this->datos);
 
             if ($resultado == 1) {
                 echo '<script>alert("Ya estas registrado,puedes iniciar sesion")</script>';
@@ -64,7 +65,7 @@ class UsuariosController
             if ($verificacion == 1) {
                 $_SESSION['idusuario'] = $resultado[0]['idusuario'];
                 $_SESSION['nombre'] = $resultado[0]['nombre'];
-                require_once'view/admin/usuarios.php';
+                require_once 'view/admin/usuarios.php';
             } else {
                 echo '<script>alert("Contraseña incorrecta")</script>';
                 require_once 'view/index.php';
@@ -73,15 +74,12 @@ class UsuariosController
             echo '<script>alert("Usuario no existe")</script>';
             require_once 'view/index.php';
         }
-        
     }
-    public function eliminar(){
-        $this->datos['idusuario']=$_REQUEST['idusuario'];
-        
+    public function eliminar()
+    {
+        $this->datos['idusuario'] = $_REQUEST['idusuario'];
+
         $this->model->eliminar($this->datos);
-        require_once'view/admin/usuarios.php';
+        require_once 'view/admin/usuarios.php';
     }
-
-
-
 }

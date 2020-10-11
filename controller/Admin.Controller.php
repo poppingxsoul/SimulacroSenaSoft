@@ -69,16 +69,19 @@ class AdminController
 
     public function actualizar()
     {
-        $this->datos['id'] = $_POST['id'];
+        $this->datos['idpersona'] = $_POST['idpersona'];
+
         $this->datos['direccion'] = $_POST['direccion'];
         $this->datos['telefono'] = $_POST['telefono'];
         $this->datos['email'] = $_POST['email'];
-        $this->datos['tipo'] = $_POST['tipo'];
+  
         $this->tipo = $_POST['tipo'];
 
-        if ($this->datos['tipo'] == 'proveedor') {
+        $this->model->actualizar($this->datos);
+        
+        if ($this->tipo == 'proveedor') {
             require_once 'view/admin/proveedores.php';
-        } elseif ($this->datos['tipo'] == 'taller') {
+        } elseif ($this->tipo == 'taller') {
             require_once 'view/admin/talleres.php';
         }
     }

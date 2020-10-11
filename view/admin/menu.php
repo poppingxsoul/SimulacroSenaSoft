@@ -1,5 +1,15 @@
+<?php
+
+if ($_SESSION['nombre']) {
+} else {
+    session_destroy();
+    header('Location:?c=Usuarios&a=index');
+}
+
+?>
+
 <header>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 " >
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
             <a class="nav-link" href="index.php"><img src="assets/img/logosoft.png" alt="Logo" width="100px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

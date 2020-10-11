@@ -10,7 +10,8 @@ class routesController
     {
         header('location:');
     }
-    public function usuarios(){
+    public function usuarios()
+    {
         header('location:?c=Usuarios&a=listar');
     }
 }

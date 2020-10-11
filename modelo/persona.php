@@ -42,7 +42,7 @@ class persona
         $stmt->bindParam(':direccion', $datos['direccion'], PDO::PARAM_STR);
         $stmt->bindParam(':telefono', $datos['telefono'], PDO::PARAM_STR);
         $stmt->bindParam(':email', $datos['email'], PDO::PARAM_STR);
-        $stmt->bindParam(':idpersona', $datos['id'], PDO::PARAM_STR);
+        $stmt->bindParam(':idpersona', $datos['idpersona'], PDO::PARAM_STR);
         
         $stmt->execute();
         $stmt->closeCursor();
