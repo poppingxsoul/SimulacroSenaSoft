@@ -36,13 +36,13 @@ class AdminController
     public function guardar()
     {
         if (isset($_POST) & !empty($_POST)) {
-            $this->datos['nombre'] = $_POST['nombre'];
-            $this->datos['tipo_documento'] = $_POST['tipo_documento'];
-            $this->datos['no_documento'] = $_POST['no_documento'];
-            $this->datos['direccion'] = $_POST['direccion'];
-            $this->datos['telefono'] = $_POST['telefono'];
-            $this->datos['email'] = $_POST['email'];
-            $this->datos['tipo'] = $_POST['tipo'];
+            $this->datos['nombre']          = $_POST['nombre'];
+            $this->datos['tipo_documento']  = $_POST['tipo_documento'];
+            $this->datos['no_documento']    = $_POST['no_documento'];
+            $this->datos['direccion']       = $_POST['direccion'];
+            $this->datos['telefono']        = $_POST['telefono'];
+            $this->datos['email']           = $_POST['email'];
+            $this->datos['tipo']            = $_POST['tipo'];
 
             $this->model->insertar($this->datos);
 
