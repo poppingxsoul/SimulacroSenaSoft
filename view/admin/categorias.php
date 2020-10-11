@@ -35,10 +35,10 @@
                                 <input type="text" name="busqueda" id="busqueda" placeholder=" Realizar una búsqueda" title="Buscar" autocomplete="off">
                             </div>
                         </div>
-                        
+
                         <div class="container" id="alerta-no-results" style="display: none;max-width: 600px;">
                             <div class="alert alert-danger" role="alert">
-                                No hay resultados para mostrar                               
+                                No hay resultados para mostrar
                             </div>
                         </div>
 
@@ -53,19 +53,19 @@
                                     </tr>
                                 </thead>
                                 <tbody id="registros">
-                                <?php foreach ($this->model->listar_categorias() as $lista):?>
-                                    <tr>
-                                        
+                                    <?php foreach ($this->model->listar_categorias() as $lista) : ?>
+                                        <tr>
 
-                                        <td><?=$lista['idcategoria'] ?></td>
-                                        <td><?=$lista['nombre'] ?></td>
-                                        <td><?=$lista['descripcion'] ?></td>
-                                        <td>
-                                        <a href="?c=Categorias&a=eliminar&idcategoria=<?= $lista['idcategoria'] ?>"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
-                                            <a data-toggle="modal" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach;?>
+
+                                            <td><?= $lista['idcategoria'] ?></td>
+                                            <td><?= $lista['nombre'] ?></td>
+                                            <td><?= $lista['descripcion'] ?></td>
+                                            <td>
+                                                <a href="?c=Categorias&a=eliminar&idcategoria=<?= $lista['idcategoria'] ?>"><span class="btn btn-outline-danger py-0 mr-2 align-middle" data-toggle="tooltip" data-placement="top" title="Eliminar">x</span>
+                                                    <a href="javascript:void(0)" onclick="mostarDetalles('<?= $lista['idcategoria'] ?>','<?= $lista['nombre'] ?>','<?= $lista['descripcion'] ?>')" data-target="#actualizar"><span class="btn btn-outline-success py-0 align-middle" data-toggle="tooltip" data-placement="top" title="Actualizar">🡡</span></a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -75,6 +75,17 @@
         </div>
     </div>
 
+    <script>
+        function mostarDetalles(idcategoria, nombre, descripcion) {
+            $('#actualizar').modal('show');
+
+            document.getElementById("idcategoria").value = idcategoria;
+            document.getElementById("nombre").value = nombre;
+            document.getElementById("descripcion").value = descripcion;
+
+
+        }
+    </script>
 
     <!-- Actualizar categoria (Ventana modal) -->
 
@@ -87,16 +98,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="POST">
+                <form action="?c=Categorias&a=actualizar" method="POST">
                     <div class="modal-body">
                         <div class="form-group form-inline">
                             <label>Nombre de la categoria</label>
-                            <input type="text" name="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 65%;">
+                            <input type="hidden" id="idcategoria" name="idcategoria">
+                            <input type="text" name="nombre" id="nombre" class="form-control p2 mx-sm-3" required="" autocomplete="off" style="max-width: 65%;">
                         </div>
 
                         <div class="form-group form-inline">
                             <label>Descripción</label>
-                            <input type="text" name="descripcion" class="form-control p2 mx-sm-3" required="">
+                        
+                            <input type="text" name="descripcion" id="descripcion" class="form-control p2 mx-sm-3" required="">
                         </div>
 
                         <hr class="pt-4 mt-5">
