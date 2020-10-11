@@ -31,15 +31,17 @@ class CategoriasController
     {
         $this->datos['idcategoria'] = $_REQUEST['idcategoria'];
         $this->model->eliminar($this->datos);
+
         require_once 'view/admin/categorias.php';
     }
     public function actualizar()
     {
-        $this->datos['id'] = $_POST['id'];
+        $this->datos['idcategoria'] = $_POST['idcategoria'];
         $this->datos['nombre'] = $_POST['nombre'];
         $this->datos['descripcion'] = $_POST['descripcion'];
 
-        var_dump($this->datos);
+        $this->model->actualizar($this->datos);
+
         require_once 'view/admin/categorias.php';
     }
 }
