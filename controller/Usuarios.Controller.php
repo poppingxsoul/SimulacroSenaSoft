@@ -80,6 +80,10 @@ class UsuariosController
         $this->datos['idusuario'] = $_REQUEST['idusuario'];
 
         $this->model->eliminar($this->datos);
+        if ($_SESSION['idusuario']=$this->datos['idusuario']) {
+            echo"<script>alert('Usted elimino su usuario')</script>";
+            header('location:?c=Usuarios&a=index');
+        }
         require_once 'view/admin/usuarios.php';
     }
 }

@@ -1,3 +1,4 @@
+<?php require_once'session.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
 
 <body>
 
-    <?php include_once 'menu.php'; ?>
+    <?php require_once'menu.php'?>
 
     <div class="container">
         <div class="row">

@@ -1,13 +1,4 @@
-<?php
-
-if ($_SESSION['nombre']) {
-} else {
-    session_destroy();
-    header('Location:?c=Usuarios&a=index');
-}
-
-?>
-
+<?php require_once'session.php'; ?>
 <header>
     <div class="container-fluid mb-5 " >
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">

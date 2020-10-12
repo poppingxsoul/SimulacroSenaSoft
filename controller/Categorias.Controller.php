@@ -21,12 +21,17 @@ class CategoriasController
     }
     public function guardar()
     {
-        $this->datos['nombre'] = $_POST['nombre'];
-        $this->datos['descripcion'] = $_POST['descripcion'];
-
-        $this->model->insertar($this->datos);
-        require_once 'view/admin/categorias.php';
-    }
+        if (!empty($_POST)) {
+            $this->datos['nombre'] = $_POST['nombre'];
+            $this->datos['descripcion'] = $_POST['descripcion'];
+    
+            $this->model->insertar($this->datos);
+            require_once 'view/admin/categorias.php';
+        }else{
+            require_once 'view/admin/categorias.php';
+        }
+        }
+        
     public function eliminar()
     {
         $this->datos['idcategoria'] = $_REQUEST['idcategoria'];

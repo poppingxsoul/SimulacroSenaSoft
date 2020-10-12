@@ -3,6 +3,8 @@ $(function() {
 });
 
 
+
+
 $(document).ready(function() {
     $("#busqueda").on("keyup", function() {
         var value = $(this).val().toLowerCase();
